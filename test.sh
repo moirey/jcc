@@ -1,12 +1,12 @@
 #!/bin/bash
 try() {
     expected="$1"
-      input="$2"
+    input="$2"
 
-        ./jcc "$input" > tmp.s
-          gcc -o tmp tmp.s
-            ./tmp
-              actual="$?"
+    ./jcc "$input" > tmp.s
+    gcc -o tmp tmp.s
+    ./tmp
+    actual="$?"
 
                 if [ "$actual" = "$expected" ]; then
                       echo "$input => $actual"
@@ -16,7 +16,7 @@ try() {
                                     fi
                                   }
 
-                                  try 0 0
+                                  try 21 '5+20-4'
                                   try 42 42
 
                                   echo OK
